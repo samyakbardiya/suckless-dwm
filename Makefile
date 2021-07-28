@@ -27,6 +27,7 @@ dwm: ${OBJ}
 
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
+	cp config.def.h config.h
 
 dist: clean
 	mkdir -p dwm-${VERSION}
@@ -47,5 +48,8 @@ install: all
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
+
+trash:
+	trash --force *.orig *.rej
 
 .PHONY: all options clean dist install uninstall

@@ -13,15 +13,22 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char font[]            = "Fira Code Nerd Font bold 10";
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_black[]       = "#1d2021";
+static const char col_black1[]      = "#3c3836";
+static const char col_gray[]        = "#928374";
+static const char col_red[]         = "#fb4934";
+static const char col_green[]       = "#b8bb26";
+static const char col_yellow[]      = "#fabd2f";
+static const char col_blue[]        = "#83a598";
+static const char col_purple[]      = "#d3869b";
+static const char col_aqua[]        = "#8ec07c";
+static const char col_orange[]      = "#fe8019";
+static const char col_white[]       = "#ebdbb2";
+static const char col_white1[]      = "#a89984";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_white, col_black, col_black1},
+	[SchemeSel]  = { col_black, col_white, col_red},
 };
 
 /* tagging */
@@ -38,7 +45,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.60; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */

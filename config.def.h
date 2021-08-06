@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -28,7 +28,7 @@ static const char col_white1[]      = "#a89984";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray,  col_black, col_black1},
-	[SchemeSel]  = { col_black, col_white, col_red},
+	[SchemeSel]  = { col_black, col_white, col_orange},
 };
 
 /* tagging */
@@ -88,6 +88,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run_history_i", "-c", "-l", "20", "-bw", "3", "-p", "run", NULL};
 static const char *termcmd[]  = { "st", NULL };
 
+#include "focusurgent.c"
 static Key keys[] = {
 	/* modifier                     key                 function        argument */
 	{ MODKEY|ShiftMask,             XK_d,               spawn,          {.v = dmenucmd } },
@@ -113,6 +114,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,               focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_v,               tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_w,               tagmon,         {.i = +1 } },
+    { MODKEY,                       XK_g,               focusurgent,    {0} },
 	{ MODKEY|ShiftMask,             XK_q,               quit,           {0} },
 	{ MODKEY|ControlMask,           XK_q,               quit,           {1} }, 
 	TAGKEYS(                        XK_u,                       0)

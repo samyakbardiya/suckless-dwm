@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;   	/* 0: systray in the right corner, >0: systray on left of status text */
@@ -27,7 +27,7 @@ static const char col_white[]       = "#ebdbb2";
 static const char col_white1[]      = "#a89984";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_black, col_black1},
+	[SchemeNorm] = { col_gray,  col_black, col_black1},
 	[SchemeSel]  = { col_black, col_white, col_red},
 };
 
@@ -39,9 +39,23 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class                    instance    title       tags mask       isfloating  monitor */
+	{ NULL,                     NULL,       NULL,       0,              False,      -1 },
+	{ "Anydesk",                NULL,       NULL,       1 << 7,         0,          -1 },
+	{ "Bitwarden",              NULL,       NULL,       1 << 8,         0,          -1 },
+	{ "Connman-gtk",            NULL,       NULL,       1 << 8,         0,          -1 },
+	{ "Emacs",                  NULL,       NULL,       1 << 3,         0,          -1 },
+	{ "Ferdi",                  NULL,       NULL,       1 << 2,         0,          -1 },
+	{ "firefox",                NULL,       NULL,       1 << 5,         0,          -1 },
+	{ "Mailspring",             NULL,       NULL,       1 << 6,         0,          -1 },
+	{ "Pcmanfm",                NULL,       NULL,       1 << 3,         0,          -1 },
+	{ "qutebrowser",            NULL,       NULL,       1 << 1,         0,          -1 },
+	{ "St",                     NULL,       NULL,       0,              0,          -1 },
+	{ "St",                     NULL,       "lf",       1 << 4,         0,          -1 },
+	{ "St",                     NULL,       "nvim",     1 << 3,         0,          -1 },
+	{ "TelegramDesktop",        NULL,       NULL,       1 << 2,         0,          -1 },
+	{ "Transmission-remote-gtk",NULL,       NULL,       1 << 7,         0,          -1 },
+	{ "Vivaldi-stable",         NULL,       NULL,       1 << 5,         0,          -1 },
 };
 
 /* layout(s) */

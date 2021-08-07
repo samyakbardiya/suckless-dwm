@@ -1,5 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 
+/* defaults */
+#define TERMINAL "st"
+#define TERMCLASS "St"
+
+
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -50,10 +55,10 @@ static const Rule rules[] = {
 	{ "Mailspring",             NULL,       NULL,       1 << 6,         False,      -1 },
 	{ "Pcmanfm",                NULL,       NULL,       1 << 3,         False,      -1 },
 	{ "qutebrowser",            NULL,       NULL,       1 << 1,         False,      -1 },
-	{ "St",                     NULL,       NULL,       0,              False,      -1 },
-	{ "St",                     NULL,       "lf",       1 << 4,         False,      -1 },
-	{ "St",                     NULL,       "nvim",     1 << 3,         False,      -1 },
-    { "St",                     NULL,       "qalc",     0,              True,       -1 },
+	{ TERMCLASS,                NULL,       NULL,       0,              False,      -1 },
+	{ TERMCLASS,                NULL,       "lf",       1 << 4,         False,      -1 },
+	{ TERMCLASS,                NULL,       "nvim",     1 << 3,         False,      -1 },
+    { TERMCLASS,                NULL,       "qalc",     0,              True,       -1 },
 	{ "TelegramDesktop",        NULL,       NULL,       1 << 2,         False,      -1 },
 	{ "Transmission-remote-gtk",NULL,       NULL,       1 << 7,         False,      -1 },
 	{ "Vivaldi-stable",         NULL,       NULL,       1 << 5,         False,      -1 },
@@ -86,7 +91,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run_history_i", "-c", "-l", "20", "-bw", "3", "-p", "run", NULL};
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { TERMINAL , NULL };
 
 #include "focusurgent.c"
 static Key keys[] = {

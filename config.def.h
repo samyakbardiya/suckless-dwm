@@ -44,24 +44,24 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                    instance    title       tags mask       isfloating  monitor */
-	{ NULL,                     NULL,       NULL,       0,              False,      -1 },
-	{ "Anydesk",                NULL,       NULL,       1 << 7,         False,      -1 },
-	{ "Bitwarden",              NULL,       NULL,       1 << 8,         False,      -1 },
-	{ "Connman-gtk",            NULL,       NULL,       1 << 8,         False,      -1 },
-	{ "Emacs",                  NULL,       NULL,       1 << 3,         False,      -1 },
-	{ "Ferdi",                  NULL,       NULL,       1 << 2,         False,      -1 },
-	{ "firefox",                NULL,       NULL,       1 << 5,         False,      -1 },
-	{ "Mailspring",             NULL,       NULL,       1 << 6,         False,      -1 },
-	{ "Pcmanfm",                NULL,       NULL,       1 << 3,         False,      -1 },
-	{ "qutebrowser",            NULL,       NULL,       1 << 1,         False,      -1 },
-	{ TERMCLASS,                NULL,       NULL,       0,              False,      -1 },
-	{ TERMCLASS,                NULL,       "lf",       1 << 4,         False,      -1 },
-	{ TERMCLASS,                NULL,       "nvim",     1 << 3,         False,      -1 },
-    { TERMCLASS,                NULL,       "qalc",     0,              True,       -1 },
-	{ "TelegramDesktop",        NULL,       NULL,       1 << 2,         False,      -1 },
-	{ "Transmission-remote-gtk",NULL,       NULL,       1 << 7,         False,      -1 },
-	{ "Vivaldi-stable",         NULL,       NULL,       1 << 5,         False,      -1 },
+	/* class                     instance  title   tags mask  isfloating  monitor */
+	{ NULL,                      NULL,     NULL,     0,           0,        -1 },
+	{ "Anydesk",                 NULL,     NULL,   1 << 7,        0,        -1 },
+	{ "Bitwarden",               NULL,     NULL,   1 << 8,        0,        -1 },
+    { "Brave-browser",           NULL,     NULL,   1 << 5,        0,        -1 },
+	{ "Connman-gtk",             NULL,     NULL,   1 << 8,        0,        -1 },
+	{ "Emacs",                   NULL,     NULL,   1 << 3,        0,        -1 },
+	{ "Ferdi",                   NULL,     NULL,   1 << 2,        0,        -1 },
+	{ "Mailspring",              NULL,     NULL,   1 << 6,        0,        -1 },
+	{ "Pcmanfm",                 NULL,     NULL,   1 << 3,        0,        -1 },
+    { "pomotroid",               NULL,     NULL,     0,           1,        -1 },
+	{ "qutebrowser",             NULL,     NULL,   1 << 1,        0,        -1 },
+	{ TERMCLASS,                 NULL,     NULL,     0,           0,        -1 },
+	{ TERMCLASS,                 NULL,     "lf",   1 << 4,        0,        -1 },
+	{ TERMCLASS,                 NULL,     "nvim", 1 << 3,        0,        -1 },
+    { TERMCLASS,                 NULL,     "qalc",   0,           1,        -1 },
+	{ "TelegramDesktop",         NULL,     NULL,   1 << 2,        0,        -1 },
+	{ "Transmission-remote-gtk", NULL,     NULL,   1 << 7,        0,        -1 },
 };
 
 /* layout(s) */
@@ -84,6 +84,14 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+#define STACKKEYS(MOD,ACTION) \
+	{ MOD, XK_j,      ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, XK_k,      ACTION##stack, {.i = INC(-1) } }, \
+	{ MOD, XK_dollar, ACTION##stack, {.i = PREVSEL } },
+	/* { MOD, XK_q,     ACTION##stack, {.i = 0 } }, \ */
+	/* { MOD, XK_a,     ACTION##stack, {.i = 1 } }, \ */
+	/* { MOD, XK_z,     ACTION##stack, {.i = 2 } }, \ */
+	/* { MOD, XK_x,     ACTION##stack, {.i = -1 } },  */
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -99,8 +107,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,               spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,          spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,               togglebar,      {0} },
-	{ MODKEY,                       XK_j,               focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,               focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_numbersign,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_exclam,          incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,               setmfact,       {.f = -0.05} },
@@ -120,17 +126,19 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_v,               tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_w,               tagmon,         {.i = +1 } },
     { MODKEY,                       XK_g,               focusurgent,    {0} },
-	{ MODKEY|ShiftMask,             XK_q,               quit,           {0} },
 	{ MODKEY|ControlMask,           XK_q,               quit,           {1} }, 
-	TAGKEYS(                        XK_u,                       0)
-	TAGKEYS(                        XK_e,                       1)
-	TAGKEYS(                        XK_o,                       2)
-	TAGKEYS(                        XK_a,                       3)
-	TAGKEYS(                        XK_p,                       4)
-	TAGKEYS(                        XK_period,                  5)
-	TAGKEYS(                        XK_comma,                   6)
-	TAGKEYS(                        XK_semicolon,               7)
-	TAGKEYS(                        XK_y,                       8)
+	/*{ MODKEY|ShiftMask,             XK_q,               quit,           {0} },*/
+	STACKKEYS(MODKEY,                                   focus)
+	STACKKEYS(MODKEY|ShiftMask,                         push)
+	TAGKEYS(                        XK_u,                               0)
+	TAGKEYS(                        XK_e,                               1)
+	TAGKEYS(                        XK_o,                               2)
+	TAGKEYS(                        XK_a,                               3)
+	TAGKEYS(                        XK_p,                               4)
+	TAGKEYS(                        XK_period,                          5)
+	TAGKEYS(                        XK_comma,                           6)
+	TAGKEYS(                        XK_semicolon,                       7)
+	TAGKEYS(                        XK_y,                               8)
 };
 
 /* button definitions */

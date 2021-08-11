@@ -35,6 +35,8 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray,  col_black, col_black1},
 	[SchemeSel]  = { col_black, col_white, col_orange},
 };
+static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
+static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -104,8 +106,9 @@ static const char *termcmd[]  = { TERMINAL , NULL };
 #include "focusurgent.c"
 static Key keys[] = {
 	/* modifier                     key                 function        argument */
-	{ MODKEY|ShiftMask,             XK_d,               spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return,          spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_d,               spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_Return,          spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_s,               spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,               togglebar,      {0} },
 	{ MODKEY,                       XK_numbersign,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_exclam,          incnmaster,     {.i = -1 } },
@@ -119,6 +122,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_braceleft,       setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,           setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,           togglefloating, {0} },
+    { MODKEY,                       XK_minus,           togglesticky,   {0} },
 	{ MODKEY,                       XK_i,               view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_i,               tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_v,               focusmon,       {.i = -1 } },

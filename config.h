@@ -46,24 +46,25 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                     instance  title   tags mask  isfloating  monitor */
-	{ NULL,                      NULL,     NULL,     0,           0,        -1 },
-	{ "Anydesk",                 NULL,     NULL,   1 << 7,        0,        -1 },
-	{ "Bitwarden",               NULL,     NULL,   1 << 8,        0,        -1 },
-    { "Brave-browser",           NULL,     NULL,   1 << 5,        0,        -1 },
-	{ "Connman-gtk",             NULL,     NULL,   1 << 8,        0,        -1 },
-	{ "Emacs",                   NULL,     NULL,   1 << 3,        0,        -1 },
-	{ "Ferdi",                   NULL,     NULL,   1 << 2,        0,        -1 },
-	{ "Mailspring",              NULL,     NULL,   1 << 6,        0,        -1 },
-	{ "Pcmanfm",                 NULL,     NULL,   1 << 3,        0,        -1 },
-    { "pomotroid",               NULL,     NULL,     0,           1,        -1 },
-	{ "qutebrowser",             NULL,     NULL,   1 << 1,        0,        -1 },
-	{ TERMCLASS,                 NULL,     NULL,     0,           0,        -1 },
-	{ TERMCLASS,                 NULL,     "lf",   1 << 4,        0,        -1 },
-	{ TERMCLASS,                 NULL,     "nvim", 1 << 3,        0,        -1 },
-    { TERMCLASS,                 NULL,     "qalc",   0,           1,        -1 },
-	{ "TelegramDesktop",         NULL,     NULL,   1 << 2,        0,        -1 },
-	{ "Transmission-remote-gtk", NULL,     NULL,   1 << 7,        0,        -1 },
+	/* class                     instance  title      tags mask  isfloating  monitor */
+	{ NULL,                      NULL,     NULL,        0,           0,        -1 },
+	{ "Anydesk",                 NULL,     NULL,      1 << 7,        0,        -1 },
+	{ "Bitwarden",               NULL,     NULL,      1 << 8,        0,        -1 },
+    { "Brave-browser",           NULL,     NULL,      1 << 5,        0,        -1 },
+    { "Brave-browser",           NULL,     "Mal-Sync",  0,           1,        -1 },
+	{ "Connman-gtk",             NULL,     NULL,      1 << 8,        0,        -1 },
+    { "discord",                 NULL,     NULL,      1 << 6,        0,        -1 },
+	{ "Ferdi",                   NULL,     NULL,      1 << 2,        0,        -1 },
+    { "Gimp",                    NULL,     NULL,      1 << 4,        0,        -1 },
+    { "lightcord",               NULL,     NULL,      1 << 6,        0,        -1 },
+	{ "Mailspring",              NULL,     NULL,      1 << 6,        0,        -1 },
+    { "photoshop.exe",           NULL,     NULL,      1 << 4,        0,        -1 },
+    { "pomotroid",               NULL,     NULL,        0,           1,        -1 },
+	{ "qutebrowser",             NULL,     NULL,      1 << 1,        0,        -1 },
+    { "Spotify",                 NULL,     NULL,      1 << 7,        0,        -1 },
+	{ TERMCLASS,                 NULL,     NULL,        0,           0,        -1 },
+    { TERMCLASS,                 NULL,     "qalc",      0,           1,        -1 },
+	{ "TelegramDesktop",         NULL,     NULL,      1 << 2,        0,        -1 },
 };
 
 /* layout(s) */

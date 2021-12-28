@@ -55,6 +55,7 @@ static const Rule rules[] = {
 	{ "Connman-gtk",        NULL,     NULL,      1 << 8,        0,            1,            -1 },
     { "discord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Ferdi",              NULL,     NULL,      1 << 2,        0,            1,            -1 },
+    { "firefox",            NULL,     NULL,      1 << 5,        0,            1,            -1 },
     { "Gimp",               NULL,     NULL,      1 << 4,        0,            1,            -1 },
     { "lightcord",          NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Mailspring",         NULL,     NULL,      1 << 6,        0,            1,            -1 },

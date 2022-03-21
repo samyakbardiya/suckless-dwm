@@ -18,17 +18,17 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char font[]            = "Fira Code Nerd Font bold 10";
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_black[]       = "#1d2021";
-static const char col_black1[]      = "#3c3836";
+static const char col_black[]       = "#202020";
+static const char col_black1[]      = "#2E2C2B";
 static const char col_gray[]        = "#928374";
-static const char col_red[]         = "#fb4934";
-static const char col_green[]       = "#b8bb26";
-static const char col_yellow[]      = "#fabd2f";
-static const char col_blue[]        = "#83a598";
+static const char col_red[]         = "#ea6962";
+static const char col_green[]       = "#a9b665";
+static const char col_yellow[]      = "#d8a657";
+static const char col_blue[]        = "#7daea3";
 static const char col_purple[]      = "#d3869b";
-static const char col_aqua[]        = "#8ec07c";
-static const char col_orange[]      = "#fe8019";
-static const char col_white[]       = "#ebdbb2";
+static const char col_aqua[]        = "#89b482";
+static const char col_orange[]      = "#e78a4e";
+static const char col_white[]       = "#D4BE98";
 static const char col_white1[]      = "#a89984";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -46,27 +46,42 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
+    /* Tag Specificity:
+     *  1 << 0  terminal
+     *  1 << 1  web browser
+     *  1 << 2  media
+     *  1 << 3  text editor
+    *  1 << 4  misc 1
+     *  1 << 5  misc 2
+     *  1 << 6  social
+     *  1 << 7  extra
+     *  1 << 8  another extra
+     */
+
 	/* class                instance  title      tags mask  isfloating  isfakefullscreen  monitor */
 	{ NULL,                 NULL,     NULL,        0,           0,            1,            -1 },
-	{ "Anydesk",            NULL,     NULL,      1 << 7,        0,            1,            -1 },
+	{ "Anydesk",            NULL,     NULL,      1 << 4,        0,            1,            -1 },
 	{ "Bitwarden",          NULL,     NULL,      1 << 8,        0,            1,            -1 },
-    { "Brave-browser",      NULL,     NULL,      1 << 5,        0,            1,            -1 },
+    { "Brave-browser",      NULL,     NULL,      1 << 2,        0,            1,            -1 },
     { "Brave-browser",      NULL,     "Mal-Sync",  0,           1,            1,            -1 },
 	{ "Connman-gtk",        NULL,     NULL,      1 << 8,        0,            1,            -1 },
     { "discord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
-	{ "Ferdi",              NULL,     NULL,      1 << 2,        0,            1,            -1 },
-    { "firefox",            NULL,     NULL,      1 << 5,        0,            1,            -1 },
+	{ "Emacs",              NULL,     NULL,      1 << 3,        0,            1,            -1 },
+	{ "Ferdi",              NULL,     NULL,      1 << 6,        0,            1,            -1 },
+    { "firefox",            NULL,     NULL,      1 << 1,        0,            1,            -1 },
+    { "FreeTube",           NULL,     NULL,      1 << 2,        0,            1,            -1 },
     { "Gimp",               NULL,     NULL,      1 << 4,        0,            1,            -1 },
+	{ "KotatogramDesktop",  NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "lightcord",          NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Mailspring",         NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "mpv",                NULL,     NULL,        0,           0,            0,            -1 },
     { "photoshop.exe",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
     { "pomotroid",          NULL,     NULL,        0,           1,            1,            -1 },
 	{ "qutebrowser",        NULL,     NULL,      1 << 1,        0,            1,            -1 },
-    { "Spotify",            NULL,     NULL,      1 << 7,        0,            1,            -1 },
+    { "Spotify",            "spotify",NULL,      1 << 7,        0,            1,            -1 },
 	{ TERMCLASS,            NULL,     NULL,        0,           0,            1,            -1 },
     { TERMCLASS,            NULL,     "qalc",      0,           1,            1,            -1 },
-	{ "TelegramDesktop",    NULL,     NULL,      1 << 2,        0,            1,            -1 },
+    { "VSCodium",           NULL,     NULL,      1 << 3,        0,            1,            -1 },
 };
 
 /* layout(s) */

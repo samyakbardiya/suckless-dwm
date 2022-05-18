@@ -39,7 +39,7 @@ static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0}
 static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -49,39 +49,40 @@ static const Rule rules[] = {
     /* Tag Specificity:
      *  1 << 0  terminal
      *  1 << 1  web browser
-     *  1 << 2  media
-     *  1 << 3  text editor
-    *  1 << 4  misc 1
+     *  1 << 2  text editor
+     *  1 << 3  media
+     *  1 << 4  misc 1
      *  1 << 5  misc 2
      *  1 << 6  social
-     *  1 << 7  extra
-     *  1 << 8  another extra
+     *  1 << 7  music
+     *  1 << 8  extra
      */
 
 	/* class                instance  title      tags mask  isfloating  isfakefullscreen  monitor */
 	{ NULL,                 NULL,     NULL,        0,           0,            1,            -1 },
-	{ "Anydesk",            NULL,     NULL,      1 << 4,        0,            1,            -1 },
+    //{ NULL,                 NULL,     "Android Emulator - android_emu:5554",  0,   1,   1,  -1 },
 	{ "Bitwarden",          NULL,     NULL,      1 << 8,        0,            1,            -1 },
-    { "Brave-browser",      NULL,     NULL,      1 << 2,        0,            1,            -1 },
-    { "Brave-browser",      NULL,     "Mal-Sync",  0,           1,            1,            -1 },
-	{ "Connman-gtk",        NULL,     NULL,      1 << 8,        0,            1,            -1 },
     { "discord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
-	{ "Emacs",              NULL,     NULL,      1 << 3,        0,            1,            -1 },
+	{ "Emacs",              NULL,     NULL,      1 << 2,        0,            1,            -1 },
 	{ "Ferdi",              NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "firefox",            NULL,     NULL,      1 << 1,        0,            1,            -1 },
-    { "FreeTube",           NULL,     NULL,      1 << 2,        0,            1,            -1 },
+    { "FreeTube",           NULL,     NULL,      1 << 3,        0,            1,            -1 },
     { "Gimp",               NULL,     NULL,      1 << 4,        0,            1,            -1 },
 	{ "KotatogramDesktop",  NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "lightcord",          NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Mailspring",         NULL,     NULL,      1 << 6,        0,            1,            -1 },
-    { "mpv",                NULL,     NULL,        0,           0,            0,            -1 },
+    { "mpv",                NULL,     NULL,      1 << 3,        0,            0,            -1 },
     { "photoshop.exe",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
     { "pomotroid",          NULL,     NULL,        0,           1,            1,            -1 },
+    { "QML Timer",          NULL,     NULL,        0,           1,            1,            -1 },
 	{ "qutebrowser",        NULL,     NULL,      1 << 1,        0,            1,            -1 },
+	{ "Ripcord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
+	{ "Ripcord",            NULL,     "Emoji",     0,           1,            1,            -1 },
     { "Spotify",            "spotify",NULL,      1 << 7,        0,            1,            -1 },
 	{ TERMCLASS,            NULL,     NULL,        0,           0,            1,            -1 },
     { TERMCLASS,            NULL,     "qalc",      0,           1,            1,            -1 },
-    { "VSCodium",           NULL,     NULL,      1 << 3,        0,            1,            -1 },
+    { "VSCodium",           NULL,     NULL,      1 << 2,        0,            1,            -1 },
+	{ "whatsapp-nativefier-d40211",NULL,NULL,    1 << 6,        0,            1,            -1 },
 };
 
 /* layout(s) */
@@ -160,7 +161,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_period,                          5)
 	TAGKEYS(                        XK_comma,                           6)
 	TAGKEYS(                        XK_semicolon,                       7)
-	TAGKEYS(                        XK_y,                               8)
+    TAGKEYS(                        XK_y,                               8)
 };
 
 /* button definitions */

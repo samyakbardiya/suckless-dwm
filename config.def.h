@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* defaults */
-#define TERMINAL "st"
-#define TERMCLASS "St"
+#define TERMINAL "alacritty"
+#define TERMCLASS "Alacritty"
 
 
 /* appearance */
@@ -51,17 +51,19 @@ static const Rule rules[] = {
      *  1 << 1  web browser
      *  1 << 2  text editor
      *  1 << 3  media
-     *  1 << 4  misc 1
-     *  1 << 5  misc 2
+     *  1 << 4  misc
+     *  1 << 5  planner
      *  1 << 6  social
      *  1 << 7  music
      *  1 << 8  extra
      */
 
 	/* class                instance  title      tags mask  isfloating  isfakefullscreen  monitor */
-	{ NULL,                 NULL,     NULL,        0,           0,            1,            -1 },
-    //{ NULL,                 NULL,     "Android Emulator - android_emu:5554",  0,   1,   1,  -1 },
+	{  NULL,                NULL,     NULL,        0,           0,            1,            -1 },
 	{ "Bitwarden",          NULL,     NULL,      1 << 8,        0,            1,            -1 },
+	{ "Brave-browser",      NULL,     NULL,      1 << 1,        0,            1,            -1 },
+    { "Code",               NULL,     NULL,      1 << 2,        0,            1,            -1 },
+	{ "DeskTime", "desktime", "Projects & Tasks",  0,           1,            1,            -1 },
     { "discord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Emacs",              NULL,     NULL,      1 << 2,        0,            1,            -1 },
 	{ "Ferdi",              NULL,     NULL,      1 << 6,        0,            1,            -1 },
@@ -69,20 +71,27 @@ static const Rule rules[] = {
     { "FreeTube",           NULL,     NULL,      1 << 3,        0,            1,            -1 },
     { "Gimp",               NULL,     NULL,      1 << 4,        0,            1,            -1 },
 	{ "KotatogramDesktop",  NULL,     NULL,      1 << 6,        0,            1,            -1 },
+	{ "librewolf",          NULL,     NULL,      1 << 1,        0,            1,            -1 },
     { "lightcord",          NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Mailspring",         NULL,     NULL,      1 << 6,        0,            1,            -1 },
+    { "Morgen",             NULL,     NULL,      1 << 5,        0,            1,            -1 },
     { "mpv",                NULL,     NULL,      1 << 3,        0,            0,            -1 },
     { "photoshop.exe",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
     { "pomotroid",          NULL,     NULL,        0,           1,            1,            -1 },
     { "QML Timer",          NULL,     NULL,        0,           1,            1,            -1 },
 	{ "qutebrowser",        NULL,     NULL,      1 << 1,        0,            1,            -1 },
 	{ "Ripcord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
-	{ "Ripcord",            NULL,     "Emoji",     0,           1,            1,            -1 },
-    { "Spotify",            "spotify",NULL,      1 << 7,        0,            1,            -1 },
-	{ TERMCLASS,            NULL,     NULL,        0,           0,            1,            -1 },
-    { TERMCLASS,            NULL,     "qalc",      0,           1,            1,            -1 },
+	{ "Ripcord",            NULL,    "Emoji",      0,           1,            1,            -1 },
+    { "Spotify",           "spotify", NULL,      1 << 7,        0,            1,            -1 },
+	{ "ticktick",           NULL,     NULL,      1 << 5,        0,            1,            -1 },
+	{ "thunderbird-beta",   NULL,     NULL,      1 << 5,        0,            1,            -1 },
+	/* { "TopTracker",         NULL,     NULL,      1 << 8,        0,            1,            -1 }, */
+	/* { "TopTracker",         NULL,     "Current Activity Description",                          \ */
+	/*                                                0,           1,            1,           -1  }, */
     { "VSCodium",           NULL,     NULL,      1 << 2,        0,            1,            -1 },
 	{ "whatsapp-nativefier-d40211",NULL,NULL,    1 << 6,        0,            1,            -1 },
+	{  TERMCLASS,           NULL,     NULL,        0,           0,            1,            -1 },
+    {  TERMCLASS,           NULL,     "qalc",      0,           1,            1,            -1 },
 };
 
 /* layout(s) */
@@ -149,8 +158,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_v,               tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_w,               tagmon,         {.i = +1 } },
     { MODKEY,                       XK_g,               focusurgent,    {0} },
-	{ MODKEY|ControlMask,           XK_q,               quit,           {1} }, 
-	/*{ MODKEY|ShiftMask,             XK_q,               quit,           {0} },*/
+	{ MODKEY|ControlMask,           XK_q,               quit,           {1} },
+	{ MODKEY|ShiftMask,             XK_q,               quit,           {0} },
 	STACKKEYS(MODKEY,                                   focus)
 	STACKKEYS(MODKEY|ShiftMask,                         push)
 	TAGKEYS(                        XK_u,                               0)

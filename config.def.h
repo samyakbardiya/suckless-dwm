@@ -75,7 +75,7 @@ static const Rule rules[] = {
     { "lightcord",          NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Mailspring",         NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "Morgen",             NULL,     NULL,      1 << 5,        0,            1,            -1 },
-    { "mpv",                NULL,     NULL,      1 << 3,        0,            0,            -1 },
+    { "mpv",                NULL,     NULL,        0,           0,            0,            -1 },
     { "photoshop.exe",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
     { "pomotroid",          NULL,     NULL,        0,           1,            1,            -1 },
     { "QML Timer",          NULL,     NULL,        0,           1,            1,            -1 },

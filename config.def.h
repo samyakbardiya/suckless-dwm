@@ -61,7 +61,7 @@ static const Rule rules[] = {
 	/* class                instance  title      tags mask  isfloating  isfakefullscreen  monitor */
 	{  NULL,                NULL,     NULL,        0,           0,            1,            -1 },
 	{ "Bitwarden",          NULL,     NULL,      1 << 8,        0,            1,            -1 },
-	{ "Brave-browser",      NULL,     NULL,      1 << 6,        0,            1,            -1 },
+	{ "Brave-browser",      NULL,     NULL,      1 << 3,        0,            1,            -1 },
     { "Code",               NULL,     NULL,      1 << 2,        0,            1,            -1 },
 	{ "DeskTime", "desktime", "Projects & Tasks",  0,           1,            1,            -1 },
     { "discord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
@@ -91,7 +91,7 @@ static const Rule rules[] = {
 	/* { "TopTracker",         NULL,     "Current Activity Description",                          \ */
 	/*                                                0,           1,            1,           -1  }, */
     { "VSCodium",           NULL,     NULL,      1 << 2,        0,            1,            -1 },
-	{ "whatsapp-nativefier-d40211",NULL,NULL,    1 << 6,        0,            1,            -1 },
+	{ "WhatSie",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{  TERMCLASS,           NULL,     NULL,        0,           0,            1,            -1 },
     {  TERMCLASS,           NULL,     "qalc",      0,           1,            1,            -1 },
 };

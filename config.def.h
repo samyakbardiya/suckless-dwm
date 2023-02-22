@@ -61,11 +61,12 @@ static const Rule rules[] = {
 	/* class                instance  title      tags mask  isfloating  isfakefullscreen  monitor */
 	{  NULL,                NULL,     NULL,        0,           0,            1,            -1 },
 	{ "Bitwarden",          NULL,     NULL,      1 << 8,        0,            1,            -1 },
-	{ "Brave-browser",      NULL,     NULL,      1 << 3,        0,            1,            -1 },
+	{ "Brave-browser",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
     { "Code",               NULL,     NULL,      1 << 2,        0,            1,            -1 },
 	{ "DeskTime", "desktime", "Projects & Tasks",  0,           1,            1,            -1 },
     { "discord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Emacs",              NULL,     NULL,      1 << 2,        0,            1,            -1 },
+	{ "Evernot",            NULL,     NULL,      1 << 5,        0,            1,            -1 },
 	{ "Ferdi",              NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "firefox",            NULL,     NULL,      1 << 1,        0,            1,            -1 },
 	{ "firefox", NULL, "Picture-in-Picture",       0,           1,            0,            -1 },
@@ -78,12 +79,13 @@ static const Rule rules[] = {
     { "Morgen",             NULL,     NULL,      1 << 5,        0,            1,            -1 },
     { "mpv",                NULL,     NULL,        0,           0,            0,            -1 },
     { "photoshop.exe",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
-    { "pomotroid",          NULL,     NULL,        0,           1,            1,            -1 },
+    { "pomotroid",          NULL,     NULL,      1 << 7,        1,            1,            -1 },
 	{ "Qalculate-gtk",      NULL,     NULL,        0,           1,            1,            -1 },
     { "QML Timer",          NULL,     NULL,        0,           1,            1,            -1 },
 	{ "qutebrowser",        NULL,     NULL,      1 << 1,        0,            1,            -1 },
 	{ "Ripcord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{ "Ripcord",            NULL,    "Emoji",      0,           1,            1,            -1 },
+	{ "Slack",              NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "Spotify",           "spotify", NULL,      1 << 7,        0,            1,            -1 },
 	{ "ticktick",           NULL,     NULL,      1 << 5,        0,            1,            -1 },
 	{ "thunderbird-beta",   NULL,     NULL,      1 << 5,        0,            1,            -1 },
@@ -92,8 +94,11 @@ static const Rule rules[] = {
 	/*                                                0,           1,            1,           -1  }, */
     { "VSCodium",           NULL,     NULL,      1 << 2,        0,            1,            -1 },
 	{ "WhatSie",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
+	{ "Whatsapp-for-linux", NULL,     NULL,      1 << 6,        0,            1,            -1 },
 	{  TERMCLASS,           NULL,     NULL,        0,           0,            1,            -1 },
     {  TERMCLASS,           NULL,     "qalc",      0,           1,            1,            -1 },
+	{ "Your_doctors",       NULL,     NULL,        0,           0,            1,            -1 },
+	{ "YouTube Music",      NULL,     NULL,     1 << 7,         0,            1,            -1 },
 };
 
 /* layout(s) */

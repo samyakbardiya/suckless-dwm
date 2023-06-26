@@ -18,23 +18,27 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const int user_bh            = 0;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char font[]            = "Fira Code Nerd Font bold 10";
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_black[]       = "#202020";
-static const char col_black1[]      = "#2E2C2B";
-static const char col_gray[]        = "#928374";
-static const char col_red[]         = "#ea6962";
-static const char col_green[]       = "#a9b665";
-static const char col_yellow[]      = "#d8a657";
-static const char col_blue[]        = "#7daea3";
-static const char col_purple[]      = "#d3869b";
-static const char col_aqua[]        = "#89b482";
-static const char col_orange[]      = "#e78a4e";
-static const char col_white[]       = "#D4BE98";
-static const char col_white1[]      = "#a89984";
+
+//                                  // GRUVBOX   //  MATERIAL
+static const char col_black[]       = "#282828"; // "#202020";
+static const char col_black1[]      = "#3c3836"; // "#2E2C2B";
+static const char col_gray[]        = "#928374"; // "#928374";
+static const char col_red[]         = "#fb4934"; // "#ea6962";
+static const char col_green[]       = "#b8bb26"; // "#a9b665";
+static const char col_yellow[]      = "#fabd2f"; // "#d8a657";
+static const char col_blue[]        = "#83a598"; // "#7daea3";
+static const char col_purple[]      = "#d3869b"; // "#d3869b";
+static const char col_aqua[]        = "#8ec07c"; // "#89b482";
+static const char col_orange[]      = "#fe8019"; // "#e78a4e";
+static const char col_white[]       = "#ebdbb2"; // "#D4BE98";
+static const char col_white1[]      = "#d5c4a1"; // "#a89984";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray,  col_black, col_black1},
 	[SchemeSel]  = { col_black, col_white, col_orange},
 };
+
 static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
 static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
@@ -50,10 +54,10 @@ static const Rule rules[] = {
      *  1 << 0  terminal
      *  1 << 1  web browser
      *  1 << 2  text editor
-     *  1 << 3  media
-     *  1 << 4  misc
-     *  1 << 5  planner
-     *  1 << 6  social
+     *  1 << 3  misc
+     *  1 << 4  misc secondary
+     *  1 << 5  browser secondary
+     *  1 << 6  social | planner
      *  1 << 7  music
      *  1 << 8  extra
      */
@@ -61,7 +65,7 @@ static const Rule rules[] = {
 	/* class                instance  title      tags mask  isfloating  isfakefullscreen  monitor */
 	{  NULL,                NULL,     NULL,        0,           0,            1,            -1 },
 	{ "Bitwarden",          NULL,     NULL,      1 << 8,        0,            1,            -1 },
-	{ "Brave-browser",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
+	{ "Brave-browser",      NULL,     NULL,      1 << 5,        0,            1,            -1 },
     { "Code",               NULL,     NULL,      1 << 2,        0,            1,            -1 },
 	{ "DeskTime", "desktime", "Projects & Tasks",  0,           1,            1,            -1 },
     { "discord",            NULL,     NULL,      1 << 6,        0,            1,            -1 },
@@ -73,10 +77,11 @@ static const Rule rules[] = {
     { "FreeTube",           NULL,     NULL,      1 << 3,        0,            1,            -1 },
     { "Gimp",               NULL,     NULL,      1 << 4,        0,            1,            -1 },
 	{ "KotatogramDesktop",  NULL,     NULL,      1 << 6,        0,            1,            -1 },
-	{ "librewolf",          NULL,     NULL,      1 << 1,        0,            1,            -1 },
+	{ "LibreWolf",          NULL,     NULL,      1 << 1,        0,            1,            -1 },
     { "lightcord",          NULL,     NULL,      1 << 6,        0,            1,            -1 },
+	/* { "KeePassXC",          NULL,     NULL,        0,           1,            1,            -1 }, */
 	{ "Mailspring",         NULL,     NULL,      1 << 6,        0,            1,            -1 },
-    { "Morgen",             NULL,     NULL,      1 << 5,        0,            1,            -1 },
+    { "Morgen",             NULL,     NULL,      1 << 6,        0,            1,            -1 },
     { "mpv",                NULL,     NULL,        0,           0,            0,            -1 },
     { "photoshop.exe",      NULL,     NULL,      1 << 4,        0,            1,            -1 },
     { "pomotroid",          NULL,     NULL,      1 << 7,        1,            1,            -1 },
@@ -165,8 +170,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_v,               tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_w,               tagmon,         {.i = +1 } },
     { MODKEY,                       XK_g,               focusurgent,    {0} },
-	{ MODKEY|ControlMask,           XK_q,               quit,           {1} },
-	{ MODKEY|ShiftMask,             XK_q,               quit,           {0} },
+	{ MODKEY|Mod1Mask|ControlMask,           XK_q,               quit,           {1} },
+	{ MODKEY|Mod1Mask|ShiftMask,             XK_q,               quit,           {0} },
 	STACKKEYS(MODKEY,                                   focus)
 	STACKKEYS(MODKEY|ShiftMask,                         push)
 	TAGKEYS(                        XK_u,                               0)

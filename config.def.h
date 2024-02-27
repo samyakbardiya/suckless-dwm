@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* defaults */
-#define TERMINAL "alacritty"
-#define TERMCLASS "Alacritty"
+#define TERMINAL "wezterm"
+#define TERMCLASS "org.wezfurlong.wezterm"
 
 /* appearance */
 static const unsigned int borderpx = 3; /* border pixel of windows */
@@ -25,17 +25,17 @@ static const char font[] = "Fira Code Nerd Font bold 10";
 static const char dmenufont[] = "monospace:size=10";
 
 //                                    // GRUVBOX    //  MATERIAL
-static const char col_black[] = "#282828";  // "#202020";
-static const char col_black1[] = "#3c3836"; // "#2E2C2B";
-static const char col_gray[] = "#928374";   // "#928374";
+static const char col_black[] = "#1E1E2E";  // "#202020";
+static const char col_black1[] = "#11111b"; // "#2E2C2B";
+static const char col_gray[] = "#6C7086";   // "#928374";
 static const char col_red[] = "#fb4934";    // "#ea6962";
 static const char col_green[] = "#b8bb26";  // "#a9b665";
 static const char col_yellow[] = "#fabd2f"; // "#d8a657";
 static const char col_blue[] = "#83a598";   // "#7daea3";
 static const char col_purple[] = "#d3869b"; // "#d3869b";
 static const char col_aqua[] = "#8ec07c";   // "#89b482";
-static const char col_orange[] = "#fe8019"; // "#e78a4e";
-static const char col_white[] = "#ebdbb2";  // "#D4BE98";
+static const char col_orange[] = "#fab387"; // "#e78a4e";
+static const char col_white[] = "#cdd6f4";  // "#D4BE98";
 static const char col_white1[] = "#d5c4a1"; // "#a89984";
 
 /* TOKYONIGHT MOON */
@@ -77,8 +77,9 @@ static const Rule rules[] = {
     /* class                instance  title      tags mask  isfloating
        isfakefullscreen  monitor */
     {NULL, NULL, NULL, 0, 0, 1, -1},
+    {"Beeper", NULL, NULL, 1 << 6, 0, 1, -1},
     {"Bitwarden", NULL, NULL, 1 << 8, 0, 1, -1},
-    {"Brave-browser", NULL, NULL, 1 << 5, 0, 1, -1},
+    {"Brave-browser", NULL, NULL, 1 << 1, 0, 1, -1},
     {"Code", NULL, NULL, 1 << 2, 0, 1, -1},
     {"DeskTime", "desktime", "Projects & Tasks", 0, 1, 1, -1},
     {"discord", NULL, NULL, 1 << 6, 0, 1, -1},
@@ -87,16 +88,20 @@ static const Rule rules[] = {
     {"Ferdi", NULL, NULL, 1 << 6, 0, 1, -1},
     {"firefox", NULL, NULL, 1 << 1, 0, 1, -1},
     {"firefox", NULL, "Picture-in-Picture", 0, 1, 0, -1},
+    {"firefoxdeveloperedition", NULL, NULL, 1 << 1, 0, 1, -1},
+    {"firefoxdeveloperedition", NULL, "Picture-in-Picture", 0, 1, 0, -1},
+    {"firefoxdeveloperedition-dev", NULL, NULL, 1 << 3, 0, 1, -1},
     {"FreeTube", NULL, NULL, 1 << 3, 0, 1, -1},
     {"Gimp", NULL, NULL, 1 << 4, 0, 1, -1},
     {"KotatogramDesktop", NULL, NULL, 1 << 6, 0, 1, -1},
     {"LibreWolf", NULL, NULL, 1 << 1, 0, 0, -1},
     {"lightcord", NULL, NULL, 1 << 6, 0, 1, -1},
-    /* { "KeePassXC",          NULL,     NULL,        0,           1, 1, -1 },
-     */
+    /* {"KeePassXC", NULL, NULL, 0, 1, 1, -1}, */
     {"Mailspring", NULL, NULL, 1 << 6, 0, 1, -1},
-    {"Morgen", NULL, NULL, 1 << 6, 0, 1, -1},
+    {"Morgen", NULL, NULL, 1 << 5, 0, 1, -1},
     {"mpv", NULL, NULL, 0, 0, 0, -1},
+    {"neovim", NULL, NULL, 1 << 2, 0, 1, -1},
+    {"Notion", NULL, NULL, 1 << 4, 0, 1, -1},
     {"photoshop.exe", NULL, NULL, 1 << 4, 0, 1, -1},
     {"pomotroid", NULL, NULL, 1 << 7, 1, 1, -1},
     {"Qalculate-gtk", NULL, NULL, 0, 1, 1, -1},
@@ -109,6 +114,8 @@ static const Rule rules[] = {
     {"Stremio", NULL, NULL, 0, 0, 0, -1},
     {"ticktick", NULL, NULL, 1 << 5, 0, 1, -1},
     {"thunderbird-beta", NULL, NULL, 1 << 5, 0, 1, -1},
+    {"todoist-nativefier-409272", NULL, NULL, 1 << 5, 0, 1 - 1},
+    {"Todoist", NULL, NULL, 1 << 5, 0, 1 - 1},
     /* { "TopTracker",         NULL,     NULL,      1 << 8,        0, 1, -1 },
      */
     /* { "TopTracker",         NULL,     "Current Activity Description", \ */
@@ -121,6 +128,7 @@ static const Rule rules[] = {
     {TERMCLASS, NULL, "qalc", 0, 1, 1, -1},
     {"Your_doctors", NULL, NULL, 0, 0, 1, -1},
     {"YouTube Music", NULL, NULL, 1 << 7, 0, 1, -1},
+    {"zoom", NULL, NULL, 1 << 4, 0, 1, -1},
 };
 
 /* layout(s) */
@@ -170,9 +178,9 @@ static const char *termcmd[] = {TERMINAL, NULL};
 #include "focusurgent.c"
 static Key keys[] = {
     /* modifier                     key                 function argument */
-    {MODKEY, XK_d, spawn, {.v = dmenucmd}},
-    {MODKEY, XK_Return, spawn, {.v = termcmd}},
-    {MODKEY, XK_s, spawn, {.v = termcmd}},
+    /* {MODKEY, XK_d, spawn, {.v = dmenucmd}}, */
+    /* {MODKEY, XK_Return, spawn, {.v = termcmd}}, */
+    /* {MODKEY, XK_s, spawn, {.v = termcmd}}, */
     {MODKEY, XK_b, togglebar, {0}},
     {MODKEY, XK_numbersign, incnmaster, {.i = +1}},
     {MODKEY, XK_exclam, incnmaster, {.i = -1}},
@@ -194,8 +202,8 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_v, tagmon, {.i = -1}},
     {MODKEY | ShiftMask, XK_w, tagmon, {.i = +1}},
     {MODKEY, XK_g, focusurgent, {0}},
-    {MODKEY | Mod1Mask | ControlMask, XK_q, quit, {1}},
-    {MODKEY | Mod1Mask | ShiftMask, XK_q, quit, {0}},
+    {MODKEY | Mod1Mask | ControlMask, XK_q, quit, {1}}, // reload dwm
+    {MODKEY | Mod1Mask | ControlMask | ShiftMask, XK_BackSpace, quit, {0}},
     STACKKEYS(MODKEY, focus) STACKKEYS(MODKEY | ShiftMask, push)
         TAGKEYS(XK_u, 0) TAGKEYS(XK_e, 1) TAGKEYS(XK_o, 2) TAGKEYS(XK_a, 3)
             TAGKEYS(XK_p, 4) TAGKEYS(XK_period, 5) TAGKEYS(XK_comma, 6)

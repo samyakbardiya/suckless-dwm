@@ -62,30 +62,28 @@ static const Rule rules[] = {
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
+
     /* Tag Specificity:
      *  1 << 0  terminal
-     *  1 << 1  web browser
-     *  1 << 2  text editor
-     *  1 << 3  misc
-     *  1 << 4  misc secondary
-     *  1 << 5  browser secondary
-     *  1 << 6  social | planner
-     *  1 << 7  music
-     *  1 << 8  extra
+     *  1 << 1  browser
+     *  1 << 2  editor
+     *  1 << 3  tools
+     *  1 << 4  misc
+     *  1 << 5  todo | notes
+     *  1 << 6  browser secondary
+     *  1 << 7  social
+     *  1 << 8  media
+     *  1 << 9  extra
      */
 
-    /* class                instance  title      tags mask  isfloating
-       isfakefullscreen  monitor */
+    /* class                instance  title      tags mask  isfloating isfakefullscreen  monitor */
     {NULL, NULL, NULL, 0, 0, 1, -1},
     {"Beeper", NULL, NULL, 1 << 7, 0, 1, -1},
     /* {"Bitwarden", NULL, NULL, 1 << 8, 0, 1, -1}, */
-    {"Brave-browser", NULL, NULL, 1 << 1, 0, 1, -1},
+    {"Brave-browser", NULL, NULL, 1 << 6, 0, 1, -1},
     {"Code", NULL, NULL, 1 << 2, 0, 1, -1},
-    /* {"DeskTime", "desktime", "Projects & Tasks", 0, 1, 1, -1}, */
     {"discord", NULL, NULL, 1 << 7, 0, 1, -1},
     {"Emacs", NULL, NULL, 1 << 2, 0, 1, -1},
-    /* {"Evernote", NULL, NULL, 1 << 5, 0, 1, -1}, */
-    /* {"Ferdi", NULL, NULL, 1 << 7, 0, 1, -1}, */
     /* {"firefox", NULL, NULL, 1 << 1, 0, 1, -1}, */
     /* {"firefox", NULL, "Picture-in-Picture", 0, 1, 0, -1}, */
     {"firefoxdeveloperedition", NULL, NULL, 1 << 1, 0, 1, -1},
@@ -94,20 +92,17 @@ static const Rule rules[] = {
     /* {"FreeTube", NULL, NULL, 1 << 3, 0, 1, -1}, */
     {"Gimp", NULL, NULL, 1 << 4, 0, 1, -1},
     {"KotatogramDesktop", NULL, NULL, 1 << 7, 0, 1, -1},
-    /* {"LibreWolf", NULL, NULL, 1 << 1, 0, 0, -1}, */
-    /* {"lightcord", NULL, NULL, 1 << 7, 0, 1, -1}, */
     /* {"KeePassXC", NULL, NULL, 0, 1, 1, -1}, */
-    /* {"Mailspring", NULL, NULL, 1 << 6, 0, 1, -1}, */
-    {"Morgen", NULL, NULL, 1 << 6, 0, 1, -1},
-    {"mpv", NULL, NULL, 0, 0, 0, -1},
+    {"Morgen", NULL, NULL, 1 << 5, 0, 1, -1},
+    {"mpv", NULL, NULL, 1 << 8, 0, 0, -1},
     {"neovim", NULL, NULL, 1 << 2, 0, 1, -1},
     {"Notion", NULL, NULL, 1 << 5, 0, 1, -1},
+    {"notion-calendar-electron", NULL, NULL, 1 << 5, 0, 1, -1},
     /* {"photoshop.exe", NULL, NULL, 1 << 4, 0, 1, -1}, */
     /* {"pomotroid", NULL, NULL, 1 << 7, 1, 1, -1}, */
     {"Qalculate-gtk", NULL, NULL, 0, 1, 1, -1},
     {"QML Timer", NULL, NULL, 0, 1, 1, -1},
     /* {"qutebrowser", NULL, NULL, 1 << 1, 0, 1, -1}, */
-    /* {"Ripcord", NULL, NULL, 1 << 6, 0, 1, -1}, */
     {"Ripcord", NULL, "Emoji", 0, 1, 1, -1},
     /* {"Slack", NULL, NULL, 1 << 6, 0, 1, -1}, */
     {"Spotify", "spotify", NULL, 1 << 8, 0, 1, -1},
@@ -115,20 +110,10 @@ static const Rule rules[] = {
     {"ticktick", NULL, NULL, 1 << 6, 0, 1, -1},
     /* {"thunderbird-beta", NULL, NULL, 1 << 5, 0, 1, -1}, */
     {"todoist-nativefier-409272", NULL, NULL, 1 << 6, 0, 1 - 1},
-    {"Todoist", NULL, NULL, 1 << 6, 0, 1 - 1},
-    /* { "TopTracker",         NULL,     NULL,      1 << 8,        0, 1, -1 },
-     */
-    /* { "TopTracker",         NULL,     "Current Activity Description", \ */
-    /*                                                0,           1, 1, -1  },
-     */
+    {"Todoist", NULL, NULL, 1 << 5, 0, 1 - 1},
     {"VSCodium", NULL, NULL, 1 << 2, 0, 1, -1},
-    /* {"WhatSie", NULL, NULL, 1 << 6, 0, 1, -1}, */
-    /* {"Whatsapp-for-linux", NULL, NULL, 1 << 6, 0, 1, -1}, */
     {TERMCLASS, NULL, NULL, 0, 0, 1, -1},
     {TERMCLASS, NULL, "qalc", 0, 1, 1, -1},
-    {"Your_doctors", NULL, NULL, 0, 0, 1, -1},
-    {"YouTube Music", NULL, NULL, 1 << 8, 0, 1, -1},
-    /* {"zoom", NULL, NULL, 1 << 4, 0, 1, -1}, */
 };
 
 /* layout(s) */
